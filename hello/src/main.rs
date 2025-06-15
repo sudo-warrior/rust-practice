@@ -15,10 +15,16 @@ fn main() {
     } else if food == "fruit" {
         test();
     } else {
-        test2();
+        print_labeled_values(5, 'h');
+
     }
 
 
+}
+
+// fuction to test the parameters and arguments
+fn print_labeled_values(parameters_1: i32, parameters_2: char){
+    println!("The labaled measurements are: {parameters_1}{parameters_2}")
 }
 
 
