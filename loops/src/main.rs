@@ -10,7 +10,7 @@ fn main() {
     let result:usize = input.trim().parse().expect("expected a number");
 
     //  trial for the fibonacci series
-   let mut fibo:Vec<u32> = Vec::new();
+   let mut fibo:Vec<u64> = Vec::new();
    for number in 0..result{
      if number == 0 {
          fibo.push(0)
