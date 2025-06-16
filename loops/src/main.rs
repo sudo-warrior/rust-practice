@@ -40,4 +40,9 @@ fn main() {
 
         index += 1;
     }
+
+    // a more concise way to loop for the above loop
+    for element in a {
+        println!("The value is: {element}");
+    }
 }
