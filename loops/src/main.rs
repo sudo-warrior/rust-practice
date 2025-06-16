@@ -20,4 +20,14 @@ fn main() {
         count += 1;
     };
     println!("The end count: {count}");
+
+    // the while loop
+    let mut number = 3;
+
+    while number != 0 {
+        println!("{number}!");
+
+        number -= 1;
+    }
+    println!("LIFTOFF!!!");
 }
