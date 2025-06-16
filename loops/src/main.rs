@@ -1,48 +1,47 @@
+use std::io;
+
 fn main() {
-    //type annotation
-    let mut count: i64 = 0;
-    
-    // the loop 
-    'counting_loop: loop {
-        println!("Count = {count}");
-        let mut remaining = 10;
-        loop {
-            println!("Remaining = {remaining}");
-            if remaining == 9 {
-                break;
-            }
+    // (32°F − 32) × 5/9 = 0°C
+    // prompting the user to input the conversion in 
+    // in bidirectional way
+    println!("Enter the choice you want for conversion");
+    println!("1. for conversion from farenheit to celcius");
+    println!("2 for conversion of celcius to ferenheirt");
+    let mut choice = String::new();
 
-            if count == 2 {
-                break 'counting_loop;
-            }
-            remaining -= 1;
+    io::stdin().read_line(&mut choice).expect("Failed to read line");
+
+    let choice = choice.trim();
+
+    // Decide the direction
+    match choice {
+        "1"=>{
+            println!("The conversion from ferenheit to celcius");
+            let mut input = String::new();
+
+            io::stdin().read_line(&mut input).expect("Expected a number");
+            let ferenheirt: f64 = input.trim().parse().expect("Number expected");
+
+            // conversion happening
+            let celcius: f64 = (ferenheirt - 32.0) * 5.0/9.0;
+
+            println!("The conversion for the {:.2}F is {:.2}C", ferenheirt, celcius)
         }
-        count += 1;
-    };
-    println!("The end count: {count}");
+        "2" => {
+            println!("The conversion from celcius to ferenheirt");
+            let mut input = String::new();
 
-    // the while loop
-    let mut number = 3;
+            io::stdin().read_line(&mut input).expect("Expected a number");
+            let celcius: f64 = input.trim().parse().expect("Number expected");
+            
+            // conversion happening
+            let ferenheirt: f64 = (celcius * 9.0/5.0) + 32.0;
 
-    while number != 0 {
-        println!("{number}!");
-
-        number -= 1;
-    }
-    println!("LIFTOFF!!!");
-
-    // looping through a collection with for loop
-    let a = [10, 20, 30, 40, 50];
-    let mut index = 0;
-
-    while index < 5 {
-        println!("The value is: {}", a[index]);
-
-        index += 1;
+            println!("The conversion of the {:.2}C is {:.2}F", celcius, ferenheirt)
+        }
+        _ => {
+            println!("Invalid types");
+        }
     }
 
-    // a more concise way to loop for the above loop
-    for element in a {
-        println!("The value is: {element}");
-    }
 }
