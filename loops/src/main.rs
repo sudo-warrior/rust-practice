@@ -28,7 +28,7 @@ fn main() {
     let p = String::from("hello");
     take_ownership(p); // p's value moves into the function
                        // and so is no linger valid Here
-                       //
+                       /
     let x = 5;
     copy_function(x);
 
@@ -41,7 +41,7 @@ fn take_ownership(preview: String) {
     println!("{preview}");
 } // preview gets out of scope
 
-// int comes nto scope
+// int comes into scope
 fn copy_function(int: i32) {
     println!("{int}");
 } // Here, some integer goes out of scope. Nothing special happens
