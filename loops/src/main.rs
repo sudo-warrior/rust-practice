@@ -23,5 +23,5 @@ fn main() {
     let mut s = String::from("world");
     s = String::from("Ahoy");
 
-    println!("{s}, world!", s);
+    println!("{s}, world!");
 }
