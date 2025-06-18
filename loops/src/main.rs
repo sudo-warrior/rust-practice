@@ -22,27 +22,41 @@ fn main() {
     // to the next stacks rather than mearly copying
     //let mut s = String::from("world");
     let s = String::from("Ahoy");
+    let _s1 = take_ownership();
+    
+    let t1 = String::from("Hello");
 
     println!("{s}, world!");
     
     let p = String::from("hello");
-    take_ownership(p); // p's value moves into the function
+    let s3 = copy_function(p); // p's value moves into the function
                        // and so is no linger valid Here
     let x = 5;
-    copy_function(x);
+    // copy_function(x);
 
     println!("{}", x);
+
+    let (s2, len) = calculate_length(t1);
+
+    println!("The length of '{s2} is {len}")
 
 }
 
 // preview comes into scope
-fn take_ownership(preview: String) {
-    println!("{preview}");
+fn take_ownership() {
+    let some_string = String::from("hello");
+    some_string;
+    //  println!("{preview}");
 } // preview gets out of scope
 
 // int comes into scope
-fn copy_function(int: i32) {
-    println!("{int}");
+fn copy_function(a_string: String) {
+    // a_string comes into scope
+    a_string;
+    //println!("{int}");
 } // Here, some integer goes out of scope. Nothing special happens
 
-
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len(); // len() returns the length of a string
+    (s, length)
+}
