@@ -20,15 +20,14 @@ fn main() {
     // to the same heap and tr to drop twice the same heap
     // avoided by moving the contents of the heap be pointed
     // to the next stacks rather than mearly copying
-    let mut s = String::from("world");
-    s = String::from("Ahoy");
+    //let mut s = String::from("world");
+    let s = String::from("Ahoy");
 
     println!("{s}, world!");
     
     let p = String::from("hello");
     take_ownership(p); // p's value moves into the function
                        // and so is no linger valid Here
-                       /
     let x = 5;
     copy_function(x);
 
