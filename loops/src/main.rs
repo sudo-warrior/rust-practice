@@ -1,9 +1,12 @@
-let User {
+struct User {
     active: bool,
     username: &str,
     email: &str,
     sign_in_count: u64
 }
+// this will bring an error of expected a named 
+// lifetime parameter: i will read in chapter
+// 10 of the book.
 
 
 fn main() {
