@@ -1,7 +1,12 @@
 fn main() {
     let mut s = String::from("hello");
+    {
+        let r1 = &mut s;
+    } // r1 goes out of scope here and the
+      // mutable references is allowed to go ahead.
+    let r2 = &mut s;
 
-    change(&mut s);
+    println!("{}", r2);
 }
 
 fn change(some_string: &mut String) {
